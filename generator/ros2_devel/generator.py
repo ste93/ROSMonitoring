@@ -1116,7 +1116,7 @@ class MonitorGenerator():
         from_import = {'rclpy.node':'Node',
                      'threading':'*',
                      'rosmonitoring_interfaces.msg':'MonitorError',
-                     'std_msgs.msg':'String',
+                     'std_msgs.msg':'*',
                      'rclpy.callback_groups':'MutuallyExclusiveCallbackGroup'}
         
         ''' generate import lines for all the other message types '''
