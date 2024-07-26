@@ -166,8 +166,8 @@ def main(argv):
 						if not isinstance(url, str) or not isinstance(port, int):
 							print('The url must be a string and port must be an integer.')
 							return
-						if oracle_action not in ['nothing']:
-							print('The actions available for the oracle are: nothing.')
+						if oracle_action not in ['nothing', 'modify']:
+							print('The actions available for the oracle are: nothing, modify.')
 							return
 					else:
 						url = None
