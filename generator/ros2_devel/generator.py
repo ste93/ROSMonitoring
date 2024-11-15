@@ -90,7 +90,7 @@ class CodeGenAndROSUtils():
         return 'self.get_logger().info({0})\n'.format(text)
     
     def get_ros_time_line(self):
-        return 'float(str(self.get_clock().now().to_msg().sec) + "." + str(self.get_clock().now().to_msg().nanosec))'
+        return 'float(self.get_clock().now().to_msg().sec) + float((self.get_clock().now().to_msg().nanosec) / 1000000000)'
         # return '{"sec": int(self.get_clock().now().to_msg().sec), "nanosec": int(self.get_clock().now().to_msg().nanosec)}'
 
         
