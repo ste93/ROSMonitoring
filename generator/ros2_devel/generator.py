@@ -1192,13 +1192,13 @@ class MonitorGenerator():
         line = "{ws_lock}.acquire()\n".format(ws_lock=self.threading_loc_name)
         lines.append(lineprefix + line)
         # making sure we don't overwrite in the dictionary
-        # if oracle_action == 'nothing':
-        #     line = "while {data_dname}['time'] in {msg_dname}:\n".format(data_dname=data_dict_name, msg_dname=self.messages_dict_name)
-        #     lines.append(lineprefix + line)
-        #     lineprefix = self.codegenutils.inc_indent(lineprefix)
-        #     line = "{data_dname}['time']+=0.01\n".format(data_dname=data_dict_name)
-        #     lines.append(lineprefix + line)
-        #     lineprefix = self.codegenutils.dec_indent(lineprefix)
+        if oracle_action == 'nothing':
+            line = "while {data_dname}['time'] in {msg_dname}:\n".format(data_dname=data_dict_name, msg_dname=self.messages_dict_name)
+            lines.append(lineprefix + line)
+            lineprefix = self.codegenutils.inc_indent(lineprefix)
+            line = "{data_dname}['time']+=0.01\n".format(data_dname=data_dict_name)
+            lines.append(lineprefix + line)
+            lineprefix = self.codegenutils.dec_indent(lineprefix)
             
         do_oracle = oracle_url != None and oracle_port != None
         log_msg = "event "
@@ -1270,13 +1270,13 @@ class MonitorGenerator():
         line = "{ws_lock}.acquire()\n".format(ws_lock=self.threading_loc_name)
         lines.append(lineprefix + line)
         # making sure we don't overwrite in the dictionary
-        # if oracle_action == 'nothing':
-        #     line = "while {data_dname}['time'] in {msg_dname}:\n".format(data_dname=data_dict_name, msg_dname=self.messages_dict_name)
-        #     lines.append(lineprefix + line)
-        #     lineprefix = self.codegenutils.inc_indent(lineprefix)
-        #     line = "{data_dname}['time']+=0.01\n".format(data_dname=data_dict_name)
-        #     lines.append(lineprefix + line)
-        #     lineprefix = self.codegenutils.dec_indent(lineprefix)
+        if oracle_action == 'nothing':
+            line = "while {data_dname}['time'] in {msg_dname}:\n".format(data_dname=data_dict_name, msg_dname=self.messages_dict_name)
+            lines.append(lineprefix + line)
+            lineprefix = self.codegenutils.inc_indent(lineprefix)
+            line = "{data_dname}['time']+=0.01\n".format(data_dname=data_dict_name)
+            lines.append(lineprefix + line)
+            lineprefix = self.codegenutils.dec_indent(lineprefix)
             
         do_oracle = oracle_url != None and oracle_port != None
         log_msg = "event "
